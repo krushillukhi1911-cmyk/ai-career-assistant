@@ -57,7 +57,7 @@ export const MatchPage: React.FC = () => {
       </div>
 
       {/* Selectors */}
-      <div className="glass-card" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', alignItems: 'flex-end' }}>
+      <div className="glass-card" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 240px), 1fr))', gap: '20px', alignItems: 'flex-end' }}>
         <div className="form-group" style={{ marginBottom: 0 }}>
           <label className="form-label">Select Uploaded Resume</label>
           <select
@@ -100,7 +100,7 @@ export const MatchPage: React.FC = () => {
 
       {/* Result Display */}
       {matchResult ? (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '24px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 290px), 1fr))', gap: '24px' }}>
           {/* Column 1: Score & Breakdown */}
           <div className="glass-card" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', gap: '20px' }}>
             <ScoreGauge score={matchResult.compatibility_score} label="Resume Compatibility" size={160} />

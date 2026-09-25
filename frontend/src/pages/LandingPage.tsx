@@ -131,10 +131,10 @@ export const LandingPage: React.FC = () => {
         style={{
           maxWidth: '1280px',
           margin: '0 auto',
-          padding: '6rem 2rem 4rem',
+          padding: '4rem 1.5rem 3rem',
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(480px, 1fr))',
-          gap: '4rem',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))',
+          gap: '3rem',
           alignItems: 'center',
         }}
       >
@@ -374,7 +374,7 @@ export const LandingPage: React.FC = () => {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
             gap: '2rem',
           }}
         >

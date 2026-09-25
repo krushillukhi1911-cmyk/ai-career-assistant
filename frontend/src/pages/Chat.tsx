@@ -93,7 +93,7 @@ export const ChatPage: React.FC = () => {
 
             <div
               style={{
-                maxWidth: '75%',
+                maxWidth: '88%',
                 background:
                   msg.sender === 'user'
                     ? 'linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%)'

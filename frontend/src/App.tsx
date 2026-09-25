@@ -23,13 +23,14 @@ const ProtectedLayout: React.FC<{ children: React.ReactNode }> = ({ children }) 
   const [token, setToken] = useState<string | null>(localStorage.getItem('token'));
   const [user, setUser] = useState<User | undefined>(undefined);
   const [loading, setLoading] = useState(true);
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
 
   useEffect(() => {
     const initAuth = async () => {
       let currentToken = localStorage.getItem('token');
       if (!currentToken) {
         try {
-          const data = await authService.login('test@example.com', 'password123');
+          const data = await authService.login('demo@example.com', 'Password123!');
           currentToken = data.access_token;
           setToken(currentToken);
         } catch (e) {
@@ -56,9 +57,9 @@ const ProtectedLayout: React.FC<{ children: React.ReactNode }> = ({ children }) 
 
   return (
     <div className="app-container">
-      <Sidebar />
+      <Sidebar isOpen={isMobileOpen} onClose={() => setIsMobileOpen(false)} />
       <main className="main-content">
-        <Navbar user={user} />
+        <Navbar user={user} onToggleMobileMenu={() => setIsMobileOpen(!isMobileOpen)} />
         {children}
       </main>
     </div>

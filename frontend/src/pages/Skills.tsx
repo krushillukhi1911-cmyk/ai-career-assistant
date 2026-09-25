@@ -56,7 +56,7 @@ export const SkillsPage: React.FC = () => {
       </div>
 
       {/* Selectors */}
-      <div className="glass-card" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', alignItems: 'flex-end' }}>
+      <div className="glass-card" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 240px), 1fr))', gap: '20px', alignItems: 'flex-end' }}>
         <div className="form-group" style={{ marginBottom: 0 }}>
           <label className="form-label">Resume</label>
           <select className="form-select" value={selectedResumeId} onChange={(e) => setSelectedResumeId(e.target.value)}>
@@ -88,7 +88,7 @@ export const SkillsPage: React.FC = () => {
       {gapData ? (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
           {/* Summary Row */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '20px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 200px), 1fr))', gap: '20px' }}>
             <div className="glass-card">
               <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Existing Skills</div>
               <div style={{ fontSize: '1.8rem', fontWeight: 800, color: 'var(--accent-emerald)' }}>

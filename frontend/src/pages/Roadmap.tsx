@@ -102,12 +102,13 @@ export const RoadmapPage: React.FC = () => {
       </div>
 
       {/* Generator Control Card */}
-      <div className="glass-card" style={{ display: 'flex', gap: '16px', alignItems: 'center', flexWrap: 'wrap' }}>
+      <div className="glass-card responsive-flex-stack" style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
         <div style={{ flex: 2, minWidth: '240px' }}>
           <label className="form-label">Target Role</label>
           <input
             type="text"
             className="form-input"
+            style={{ width: '100%' }}
             value={targetRole}
             onChange={(e) => setTargetRole(e.target.value)}
           />
@@ -117,6 +118,7 @@ export const RoadmapPage: React.FC = () => {
           <label className="form-label">Duration (Weeks)</label>
           <select
             className="form-select"
+            style={{ width: '100%' }}
             value={weeks}
             onChange={(e) => setWeeks(Number(e.target.value))}
           >
@@ -130,8 +132,8 @@ export const RoadmapPage: React.FC = () => {
         <button
           onClick={fetchRoadmap}
           disabled={generating}
-          className="btn-primary"
-          style={{ height: '46px', alignSelf: 'flex-end' }}
+          className="btn-primary responsive-btn-full"
+          style={{ height: '46px', alignSelf: 'flex-end', justifyContent: 'center' }}
         >
           <Sparkles size={18} /> {generating ? 'Generating Roadmap...' : 'Regenerate Plan'}
         </button>

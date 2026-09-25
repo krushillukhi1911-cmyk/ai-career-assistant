@@ -63,15 +63,14 @@ export const Dashboard: React.FC = () => {
     <div className="animate-fade-in" style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
       {/* Top Banner */}
       <div
-        className="glass-card"
+        className="glass-card responsive-flex-stack"
         style={{
           background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(139, 92, 246, 0.1) 100%)',
           borderColor: 'rgba(99, 102, 241, 0.3)',
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          padding: '32px',
-          flexWrap: 'wrap',
+          padding: '28px',
           gap: '20px',
         }}
       >
@@ -91,23 +90,23 @@ export const Dashboard: React.FC = () => {
             </div>
           )}
         </div>
-        <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
+        <div className="responsive-flex-stack" style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
           <button
             onClick={handleLoadDemoData}
             disabled={seeding}
-            className="btn-secondary"
-            style={{ padding: '14px 22px', whiteSpace: 'nowrap', display: 'flex', alignItems: 'center', gap: '8px' }}
+            className="btn-secondary responsive-btn-full"
+            style={{ padding: '14px 22px', display: 'flex', alignItems: 'center', gap: '8px' }}
           >
             <Sparkles size={16} color="#a5b4fc" /> {seeding ? 'Seeding...' : '⚡ Load Sample Data'}
           </button>
-          <Link to="/match" className="btn-primary" style={{ padding: '14px 28px', whiteSpace: 'nowrap' }}>
+          <Link to="/match" className="btn-primary responsive-btn-full" style={{ padding: '14px 28px' }}>
             Run Job Match <ArrowRight size={18} />
           </Link>
         </div>
       </div>
 
       {/* Metrics Grid */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '20px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 240px), 1fr))', gap: '20px' }}>
         <div className="glass-card" style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
           <div
             style={{
@@ -119,10 +118,10 @@ export const Dashboard: React.FC = () => {
           >
             <FileText size={28} />
           </div>
-          <div>
+          <div style={{ overflow: 'hidden' }}>
             <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Resumes Uploaded</div>
             <div style={{ fontSize: '1.8rem', fontWeight: 800 }}>{resumes.length}</div>
-            <div style={{ fontSize: '0.75rem', color: 'var(--accent-emerald)' }}>
+            <div style={{ fontSize: '0.75rem', color: 'var(--accent-emerald)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
               {latestResume ? `Latest: ${latestResume.filename}` : 'No resume uploaded yet'}
             </div>
           </div>
@@ -139,10 +138,10 @@ export const Dashboard: React.FC = () => {
           >
             <Briefcase size={28} />
           </div>
-          <div>
+          <div style={{ overflow: 'hidden' }}>
             <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Target Job Roles</div>
             <div style={{ fontSize: '1.8rem', fontWeight: 800 }}>{jobs.length}</div>
-            <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
+            <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
               {latestJob ? `Latest: ${latestJob.title}` : 'No jobs analyzed yet'}
             </div>
           </div>
@@ -170,7 +169,7 @@ export const Dashboard: React.FC = () => {
       </div>
 
       {/* Main Feature Cards */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '24px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: '24px' }}>
         {/* Resume Overview */}
         <div className="glass-card" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
           <div>
@@ -250,7 +249,7 @@ export const Dashboard: React.FC = () => {
 
       {/* Quick Launch Action Cards Grid */}
       <h3 style={{ fontSize: '1.25rem', marginTop: '8px' }}>AI Career Tools</h3>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 250px), 1fr))', gap: '20px' }}>
         <Link to="/skills" className="glass-card" style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
           <Layers size={28} color="var(--accent-cyan)" />
           <h4 style={{ fontSize: '1.1rem' }}>Skill Gap Matrix</h4>

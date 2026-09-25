@@ -119,7 +119,7 @@ export const InterviewPage: React.FC = () => {
   return (
     <div className="animate-fade-in" style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
       {/* Header */}
-      <div className="glass-card" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px' }}>
+      <div className="glass-card responsive-flex-stack" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '16px' }}>
         <div>
           <h2 style={{ fontSize: '1.6rem', marginBottom: '4px' }}>AI Technical Interview Simulator</h2>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>
@@ -127,16 +127,16 @@ export const InterviewPage: React.FC = () => {
           </p>
         </div>
 
-        <div style={{ display: 'flex', gap: '10px' }}>
+        <div className="responsive-flex-stack" style={{ display: 'flex', gap: '10px' }}>
           <button
             onClick={() => setActiveTab('practice')}
-            className={activeTab === 'practice' ? 'btn-primary' : 'btn-secondary'}
+            className={activeTab === 'practice' ? 'btn-primary responsive-btn-full' : 'btn-secondary responsive-btn-full'}
           >
             Question Bank
           </button>
           <button
             onClick={handleStartMock}
-            className={activeTab === 'mock' ? 'btn-primary' : 'btn-secondary'}
+            className={activeTab === 'mock' ? 'btn-primary responsive-btn-full' : 'btn-secondary responsive-btn-full'}
           >
             <Play size={16} /> Start Interactive Mock
           </button>
@@ -145,7 +145,7 @@ export const InterviewPage: React.FC = () => {
 
       {activeTab === 'practice' ? (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-          <div className="glass-card" style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
+          <div className="glass-card responsive-flex-stack" style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
             <input
               type="text"
               className="form-input"
@@ -154,7 +154,7 @@ export const InterviewPage: React.FC = () => {
               value={roleTitle}
               onChange={(e) => setRoleTitle(e.target.value)}
             />
-            <button onClick={handleGenerateQuestions} disabled={generating} className="btn-primary">
+            <button onClick={handleGenerateQuestions} disabled={generating} className="btn-primary responsive-btn-full">
               <Sparkles size={18} /> {generating ? 'Generating...' : 'Regenerate Questions'}
             </button>
           </div>
@@ -162,7 +162,7 @@ export const InterviewPage: React.FC = () => {
           {generating ? (
             <LoadingSpinner message="Formulating role-specific technical questions..." />
           ) : (
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(450px, 1fr))', gap: '20px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', gap: '20px' }}>
               {questions.map((q, idx) => (
                 <div key={q.id || idx} className="glass-card" style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
