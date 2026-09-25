@@ -1,0 +1,27 @@
+Jane Doe
+jane.doe@example.com | +1 (555) 019-2834 | San Francisco, CA
+GitHub: https://github.com/janedoe | LinkedIn: linkedin.com/in/janedoe
+
+PROFESSIONAL SUMMARY
+Results-driven Senior Software Engineer with 5+ years of experience building scalable backend microservices, REST APIs, and database-intensive web applications using Python, FastAPI, PostgreSQL, and Docker.
+
+TECHNICAL SKILLS
+- Languages & Frameworks: Python, FastAPI, Django, SQL, JavaScript, HTML5, CSS3
+- Databases & ORM: PostgreSQL, SQLAlchemy, AsyncPG, Redis, SQLite
+- DevOps & Tools: Docker, Git, Linux, Pytest, REST APIs, CI/CD, GitHub Actions
+
+WORK EXPERIENCE
+Senior Backend Engineer | Tech Innovations Inc | San Francisco, CA | 2021 - Present
+- Architected high-throughput microservices in Python with FastAPI and PostgreSQL, serving 100,000+ daily active users with 99.9% uptime.
+- Optimized complex SQL queries and database indexes, reducing average API response latency by 40%.
+- Implemented JWT authentication and OAuth2 role-based access control across 15+ API microservice endpoints.
+
+Junior Python Developer | DataCorp | Oakland, CA | 2019 - 2021
+- Developed automated data ingestion pipelines and ETL scripts processing 5GB+ daily JSON metrics.
+- Authored automated unit and integration tests using pytest, increasing test coverage from 60% to 92%.
+
+EDUCATION
+Bachelor of Science in Computer Science | University of California, Berkeley | 2015 - 2019
+
+PROJECTS
+AI Career Assistant: Built an intelligent RAG resume and job matching platform using Python, FastAPI, and FAISS vector embeddings.

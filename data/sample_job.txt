@@ -1,0 +1,26 @@
+Senior Python & AI Backend Engineer
+
+Company: CloudTech Solutions
+Location: San Francisco, CA (Hybrid / Remote)
+
+JOB DESCRIPTION:
+CloudTech Solutions is seeking an experienced Senior Python Backend Engineer to join our core infrastructure and AI product team. You will architect high-performance FastAPI microservices, design scalable PostgreSQL database schemas, build RAG pipelines with vector databases, and deploy containerized services to AWS.
+
+REQUIRED SKILLS & QUALIFICATIONS:
+- 3+ years of professional backend software development experience in Python.
+- Proven expertise with FastAPI, Pydantic, and async SQLAlchemy ORM.
+- Strong background in relational database design, complex SQL query optimization, and PostgreSQL.
+- Proficiency with Git version control, Docker containerization, and RESTful API design principles.
+- Hands-on experience with automated testing using Pytest.
+
+PREFERRED / BONUS SKILLS:
+- Cloud infrastructure experience with AWS (ECS, S3, RDS, App Runner).
+- Familiarity with AI/ML concepts, Sentence-Transformers, vector databases (FAISS / ChromaDB), and RAG pipelines.
+- Experience with Redis caching and Celery / background job processing.
+- Knowledge of CI/CD pipeline automation with GitHub Actions.
+
+CORE RESPONSIBILITIES:
+- Architect, build, and maintain production-grade FastAPI microservices.
+- Collaborate with frontend engineers to deliver seamless REST API integrations.
+- Optimize database queries and monitor system performance.
+- Participate in code reviews and mentor junior developers.
