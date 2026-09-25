@@ -46,18 +46,20 @@ export const SkillsPage: React.FC = () => {
   if (loading) return <LoadingSpinner message="Loading skill analyzer..." />;
 
   return (
-    <div className="animate-fade-in" style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
+    <div className="page-container animate-fade-in">
       {/* Header */}
-      <div className="glass-card">
-        <h2 style={{ fontSize: '1.6rem', marginBottom: '4px' }}>AI Skill Gap Classification</h2>
-        <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>
-          Identifies existing skills vs required job skills, classifying proficiency gaps strictly from resume evidence.
-        </p>
+      <div className="page-header-card">
+        <div>
+          <h2 style={{ fontSize: '1.65rem', marginBottom: '4px' }}>AI Skill Gap Classification</h2>
+          <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>
+            Identifies existing skills vs required job skills, classifying proficiency gaps strictly from resume evidence.
+          </p>
+        </div>
       </div>
 
       {/* Selectors */}
-      <div className="glass-card" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 240px), 1fr))', gap: '20px', alignItems: 'flex-end' }}>
-        <div className="form-group" style={{ marginBottom: 0 }}>
+      <div className="glass-card responsive-flex-stack" style={{ display: 'flex', gap: '20px', alignItems: 'flex-end' }}>
+        <div className="form-group" style={{ flex: 1 }}>
           <label className="form-label">Resume</label>
           <select className="form-select" value={selectedResumeId} onChange={(e) => setSelectedResumeId(e.target.value)}>
             {resumes.map((r) => (
@@ -68,7 +70,7 @@ export const SkillsPage: React.FC = () => {
           </select>
         </div>
 
-        <div className="form-group" style={{ marginBottom: 0 }}>
+        <div className="form-group" style={{ flex: 1 }}>
           <label className="form-label">Target Job Role</label>
           <select className="form-select" value={selectedJobId} onChange={(e) => setSelectedJobId(e.target.value)}>
             {jobs.map((j) => (
@@ -79,7 +81,7 @@ export const SkillsPage: React.FC = () => {
           </select>
         </div>
 
-        <button onClick={handleRunGapAnalysis} disabled={analyzing} className="btn-primary" style={{ height: '46px', justifyContent: 'center' }}>
+        <button onClick={handleRunGapAnalysis} disabled={analyzing} className="btn-primary responsive-btn-full" style={{ height: '44px' }}>
           <Layers size={18} /> {analyzing ? 'Analyzing Gaps...' : 'Analyze Skill Gap'}
         </button>
       </div>
@@ -88,7 +90,7 @@ export const SkillsPage: React.FC = () => {
       {gapData ? (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
           {/* Summary Row */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 200px), 1fr))', gap: '20px' }}>
+          <div className="grid-3col">
             <div className="glass-card">
               <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Existing Skills</div>
               <div style={{ fontSize: '1.8rem', fontWeight: 800, color: 'var(--accent-emerald)' }}>

@@ -58,16 +58,18 @@ export const JobAnalysisPage: React.FC = () => {
   const jData = selectedJob?.structured_data;
 
   return (
-    <div className="animate-fade-in" style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
+    <div className="page-container animate-fade-in">
       {/* Header */}
-      <div className="glass-card">
-        <h2 style={{ fontSize: '1.6rem', marginBottom: '4px' }}>Job Description Analyzer</h2>
-        <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>
-          Paste target job postings to automatically extract required skills, preferred qualifications, and core responsibilities.
-        </p>
+      <div className="page-header-card">
+        <div>
+          <h2 style={{ fontSize: '1.65rem', marginBottom: '4px' }}>Job Description Analyzer</h2>
+          <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>
+            Paste target job postings to automatically extract required skills, preferred qualifications, and core responsibilities.
+          </p>
+        </div>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', gap: '24px' }}>
+      <div className="grid-2col">
         {/* Form Column */}
         <div className="glass-card">
           <h3 style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '1.25rem', marginBottom: '16px' }}>

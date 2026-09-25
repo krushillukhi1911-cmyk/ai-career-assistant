@@ -47,18 +47,20 @@ export const MatchPage: React.FC = () => {
   if (loading) return <LoadingSpinner message="Loading match engine data..." />;
 
   return (
-    <div className="animate-fade-in" style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
+    <div className="page-container animate-fade-in">
       {/* Header */}
-      <div className="glass-card">
-        <h2 style={{ fontSize: '1.6rem', marginBottom: '4px' }}>Resume vs Job Matching Engine</h2>
-        <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>
-          Uses SentenceTransformers vector embeddings and keyword coverage to compute a transparent compatibility score.
-        </p>
+      <div className="page-header-card">
+        <div>
+          <h2 style={{ fontSize: '1.65rem', marginBottom: '4px' }}>Resume vs Job Matching Engine</h2>
+          <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>
+            Uses SentenceTransformers vector embeddings and keyword coverage to compute a transparent compatibility score.
+          </p>
+        </div>
       </div>
 
       {/* Selectors */}
-      <div className="glass-card" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 240px), 1fr))', gap: '20px', alignItems: 'flex-end' }}>
-        <div className="form-group" style={{ marginBottom: 0 }}>
+      <div className="glass-card responsive-flex-stack" style={{ display: 'flex', gap: '20px', alignItems: 'flex-end' }}>
+        <div className="form-group" style={{ flex: 1 }}>
           <label className="form-label">Select Uploaded Resume</label>
           <select
             className="form-select"
@@ -73,7 +75,7 @@ export const MatchPage: React.FC = () => {
           </select>
         </div>
 
-        <div className="form-group" style={{ marginBottom: 0 }}>
+        <div className="form-group" style={{ flex: 1 }}>
           <label className="form-label">Select Target Job Posting</label>
           <select
             className="form-select"
@@ -91,16 +93,16 @@ export const MatchPage: React.FC = () => {
         <button
           onClick={handleRunMatch}
           disabled={matching || !selectedResumeId || !selectedJobId}
-          className="btn-primary"
-          style={{ height: '46px', justifyContent: 'center' }}
+          className="btn-primary responsive-btn-full"
+          style={{ height: '44px' }}
         >
-          <GitCompare size={18} /> {matching ? 'Calculating Match...' : 'Calculate Fit'}
+          <GitCompare size={18} /> {matching ? 'Calculating Fit...' : 'Calculate Fit'}
         </button>
       </div>
 
       {/* Result Display */}
       {matchResult ? (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 290px), 1fr))', gap: '24px' }}>
+        <div className="grid-2col">
           {/* Column 1: Score & Breakdown */}
           <div className="glass-card" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', gap: '20px' }}>
             <ScoreGauge score={matchResult.compatibility_score} label="Resume Compatibility" size={160} />

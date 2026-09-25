@@ -65,10 +65,10 @@ export const Navbar: React.FC<NavbarProps> = ({ user, onToggleMobileMenu }) => {
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
           <button
             className="btn-secondary"
-            style={{ padding: '10px', borderRadius: '50%' }}
+            style={{ width: '42px', height: '42px', padding: 0, borderRadius: '50%', flexShrink: 0 }}
             title="Notifications"
           >
-            <Bell size={18} />
+            <Bell size={18} color="#a5b4fc" />
           </button>
 
           <div
@@ -76,23 +76,24 @@ export const Navbar: React.FC<NavbarProps> = ({ user, onToggleMobileMenu }) => {
             style={{
               display: 'flex',
               alignItems: 'center',
-              gap: '10px',
+              gap: '8px',
               background: 'rgba(255, 255, 255, 0.05)',
-              padding: '6px 14px',
+              padding: '0 16px',
+              height: '42px',
               borderRadius: '9999px',
               border: '1px solid var(--bg-card-border)',
             }}
           >
             <UserIcon size={18} color="#a5b4fc" />
-            <span style={{ fontSize: '0.85rem', fontWeight: 500 }}>
-              {user?.email || 'User Account'}
+            <span style={{ fontSize: '0.85rem', fontWeight: 500, color: 'var(--text-main)' }}>
+              {user?.email || 'demo@example.com'}
             </span>
           </div>
 
           <button
             onClick={handleLogout}
             className="btn-secondary"
-            style={{ padding: '8px 14px', fontSize: '0.85rem' }}
+            style={{ height: '42px', padding: '0 16px', fontSize: '0.85rem' }}
           >
             <LogOut size={16} />
             <span className="navbar-logout-text">Logout</span>

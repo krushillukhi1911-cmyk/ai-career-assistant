@@ -60,32 +60,21 @@ export const Dashboard: React.FC = () => {
   const latestJob = jobs[0];
 
   return (
-    <div className="animate-fade-in" style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
-      {/* Top Banner */}
-      <div
-        className="glass-card responsive-flex-stack"
-        style={{
-          background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(139, 92, 246, 0.1) 100%)',
-          borderColor: 'rgba(99, 102, 241, 0.3)',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          padding: '28px',
-          gap: '20px',
-        }}
-      >
+    <div className="page-container animate-fade-in">
+      {/* Top Banner Header */}
+      <div className="page-header-card responsive-flex-stack">
         <div>
-          <div className="badge badge-primary" style={{ marginBottom: '12px' }}>
+          <div className="badge badge-primary" style={{ marginBottom: '10px' }}>
             <Sparkles size={14} /> AI Career Hub Active
           </div>
-          <h2 style={{ fontSize: '1.8rem', marginBottom: '8px' }}>
+          <h2 style={{ fontSize: '1.75rem', marginBottom: '6px' }}>
             Transform Your Job Search with AI Precision
           </h2>
-          <p style={{ color: 'var(--text-muted)', maxWidth: '650px', fontSize: '0.95rem' }}>
+          <p style={{ color: 'var(--text-muted)', maxWidth: '650px', fontSize: '0.92rem' }}>
             Upload your resume, paste target job descriptions, analyze semantic fit, generate tailored interview questions, and build a weekly growth roadmap.
           </p>
           {seedSuccess && (
-            <div style={{ marginTop: '12px', color: '#4ade80', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '6px' }}>
+            <div style={{ marginTop: '10px', color: '#4ade80', fontSize: '0.88rem', display: 'flex', alignItems: 'center', gap: '6px' }}>
               <CheckCircle size={16} /> Sample demo resume, job descriptions, & roadmap loaded successfully!
             </div>
           )}
@@ -95,33 +84,37 @@ export const Dashboard: React.FC = () => {
             onClick={handleLoadDemoData}
             disabled={seeding}
             className="btn-secondary responsive-btn-full"
-            style={{ padding: '14px 22px', display: 'flex', alignItems: 'center', gap: '8px' }}
           >
             <Sparkles size={16} color="#a5b4fc" /> {seeding ? 'Seeding...' : '⚡ Load Sample Data'}
           </button>
-          <Link to="/match" className="btn-primary responsive-btn-full" style={{ padding: '14px 28px' }}>
+          <Link to="/match" className="btn-primary responsive-btn-full">
             Run Job Match <ArrowRight size={18} />
           </Link>
         </div>
       </div>
 
       {/* Metrics Grid */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 240px), 1fr))', gap: '20px' }}>
+      <div className="grid-3col">
         <div className="glass-card" style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
           <div
             style={{
-              padding: '14px',
-              borderRadius: '12px',
+              width: '52px',
+              height: '52px',
+              borderRadius: '14px',
               background: 'rgba(99, 102, 241, 0.15)',
               color: '#a5b4fc',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              flexShrink: 0,
             }}
           >
-            <FileText size={28} />
+            <FileText size={26} />
           </div>
           <div style={{ overflow: 'hidden' }}>
-            <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Resumes Uploaded</div>
-            <div style={{ fontSize: '1.8rem', fontWeight: 800 }}>{resumes.length}</div>
-            <div style={{ fontSize: '0.75rem', color: 'var(--accent-emerald)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+            <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)', fontWeight: 500 }}>Resumes Uploaded</div>
+            <div style={{ fontSize: '1.75rem', fontWeight: 800, lineHeight: '1.2' }}>{resumes.length}</div>
+            <div style={{ fontSize: '0.75rem', color: 'var(--accent-emerald)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', marginTop: '2px' }}>
               {latestResume ? `Latest: ${latestResume.filename}` : 'No resume uploaded yet'}
             </div>
           </div>
@@ -130,18 +123,23 @@ export const Dashboard: React.FC = () => {
         <div className="glass-card" style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
           <div
             style={{
-              padding: '14px',
-              borderRadius: '12px',
+              width: '52px',
+              height: '52px',
+              borderRadius: '14px',
               background: 'rgba(6, 182, 212, 0.15)',
               color: '#22d3ee',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              flexShrink: 0,
             }}
           >
-            <Briefcase size={28} />
+            <Briefcase size={26} />
           </div>
           <div style={{ overflow: 'hidden' }}>
-            <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Target Job Roles</div>
-            <div style={{ fontSize: '1.8rem', fontWeight: 800 }}>{jobs.length}</div>
-            <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+            <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)', fontWeight: 500 }}>Target Job Roles</div>
+            <div style={{ fontSize: '1.75rem', fontWeight: 800, lineHeight: '1.2' }}>{jobs.length}</div>
+            <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', marginTop: '2px' }}>
               {latestJob ? `Latest: ${latestJob.title}` : 'No jobs analyzed yet'}
             </div>
           </div>
@@ -150,44 +148,49 @@ export const Dashboard: React.FC = () => {
         <div className="glass-card" style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
           <div
             style={{
-              padding: '14px',
-              borderRadius: '12px',
+              width: '52px',
+              height: '52px',
+              borderRadius: '14px',
               background: 'rgba(16, 185, 129, 0.15)',
               color: '#6ee7b7',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              flexShrink: 0,
             }}
           >
-            <GitCompare size={28} />
+            <GitCompare size={26} />
           </div>
           <div>
-            <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Match Readiness</div>
-            <div style={{ fontSize: '1.8rem', fontWeight: 800 }}>
+            <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)', fontWeight: 500 }}>Match Readiness</div>
+            <div style={{ fontSize: '1.75rem', fontWeight: 800, lineHeight: '1.2' }}>
               {latestResume && latestJob ? '78%' : 'Ready'}
             </div>
-            <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Semantic Fit Gauge</div>
+            <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '2px' }}>Semantic Fit Gauge</div>
           </div>
         </div>
       </div>
 
       {/* Main Feature Cards */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: '24px' }}>
+      <div className="grid-2col">
         {/* Resume Overview */}
         <div className="glass-card" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
           <div>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
-              <h3 style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <FileText size={22} color="var(--primary)" /> Resume Status
+              <h3 style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '1.15rem' }}>
+                <FileText size={20} color="var(--primary)" /> Resume Status
               </h3>
               <Link to="/resume" className="badge badge-primary">
                 Manage
               </Link>
             </div>
             {latestResume ? (
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                 <div style={{ fontSize: '0.95rem', fontWeight: 600 }}>{latestResume.filename}</div>
                 <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
                   Extracted Skills: {(latestResume.structured_data?.skills || []).slice(0, 6).join(', ')}...
                 </div>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginTop: '8px' }}>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginTop: '6px' }}>
                   {(latestResume.structured_data?.skills || []).slice(0, 5).map((s) => (
                     <span key={s} className="badge badge-primary">
                       {s}
@@ -214,8 +217,8 @@ export const Dashboard: React.FC = () => {
         <div className="glass-card" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
           <div>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
-              <h3 style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <Briefcase size={22} color="var(--accent-cyan)" /> Target Job Postings
+              <h3 style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '1.15rem' }}>
+                <Briefcase size={20} color="var(--accent-cyan)" /> Target Job Postings
               </h3>
               <Link to="/job-analysis" className="badge badge-primary">
                 Add Job
@@ -224,7 +227,7 @@ export const Dashboard: React.FC = () => {
             {latestJob ? (
               <div>
                 <div style={{ fontSize: '0.95rem', fontWeight: 600 }}>{latestJob.title}</div>
-                <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '8px' }}>
+                <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '6px' }}>
                   {latestJob.company || 'Target Role'}
                 </div>
                 <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
@@ -248,9 +251,9 @@ export const Dashboard: React.FC = () => {
       </div>
 
       {/* Quick Launch Action Cards Grid */}
-      <h3 style={{ fontSize: '1.25rem', marginTop: '8px' }}>AI Career Tools</h3>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 250px), 1fr))', gap: '20px' }}>
-        <Link to="/skills" className="glass-card" style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+      <h3 style={{ fontSize: '1.2rem', marginTop: '4px' }}>AI Career Tools</h3>
+      <div className="grid-3col">
+        <Link to="/skills" className="glass-card-interactive" style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
           <Layers size={28} color="var(--accent-cyan)" />
           <h4 style={{ fontSize: '1.1rem' }}>Skill Gap Matrix</h4>
           <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
@@ -258,7 +261,7 @@ export const Dashboard: React.FC = () => {
           </p>
         </Link>
 
-        <Link to="/interview" className="glass-card" style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+        <Link to="/interview" className="glass-card-interactive" style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
           <HelpCircle size={28} color="var(--secondary)" />
           <h4 style={{ fontSize: '1.1rem' }}>AI Mock Interview</h4>
           <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
@@ -266,7 +269,7 @@ export const Dashboard: React.FC = () => {
           </p>
         </Link>
 
-        <Link to="/roadmap" className="glass-card" style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+        <Link to="/roadmap" className="glass-card-interactive" style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
           <Map size={28} color="var(--accent-emerald)" />
           <h4 style={{ fontSize: '1.1rem' }}>Learning Roadmap</h4>
           <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>

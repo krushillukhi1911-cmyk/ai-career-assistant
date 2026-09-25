@@ -92,23 +92,25 @@ export const RoadmapPage: React.FC = () => {
   if (loading) return <LoadingSpinner message="Generating personalized learning roadmap..." />;
 
   return (
-    <div className="animate-fade-in" style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
+    <div className="page-container animate-fade-in">
       {/* Header */}
-      <div className="glass-card">
-        <h2 style={{ fontSize: '1.6rem', marginBottom: '4px' }}>Personalized Learning Roadmap</h2>
-        <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>
-          Structured week-by-week practice curriculum designed to bridge missing skill gaps for your target job role.
-        </p>
+      <div className="page-header-card">
+        <div>
+          <h2 style={{ fontSize: '1.65rem', marginBottom: '4px' }}>Personalized Learning Roadmap</h2>
+          <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>
+            Structured week-by-week practice curriculum designed to bridge missing skill gaps for your target job role.
+          </p>
+        </div>
       </div>
 
       {/* Generator Control Card */}
-      <div className="glass-card responsive-flex-stack" style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
-        <div style={{ flex: 2, minWidth: '240px' }}>
+      <div className="glass-card responsive-flex-stack" style={{ display: 'flex', gap: '16px', alignItems: 'flex-end' }}>
+        <div style={{ flex: 2, minWidth: '220px' }}>
           <label className="form-label">Target Role</label>
           <input
             type="text"
             className="form-input"
-            style={{ width: '100%' }}
+            style={{ width: '100%', height: '44px' }}
             value={targetRole}
             onChange={(e) => setTargetRole(e.target.value)}
           />
@@ -118,7 +120,7 @@ export const RoadmapPage: React.FC = () => {
           <label className="form-label">Duration (Weeks)</label>
           <select
             className="form-select"
-            style={{ width: '100%' }}
+            style={{ width: '100%', height: '44px' }}
             value={weeks}
             onChange={(e) => setWeeks(Number(e.target.value))}
           >
@@ -133,7 +135,7 @@ export const RoadmapPage: React.FC = () => {
           onClick={fetchRoadmap}
           disabled={generating}
           className="btn-primary responsive-btn-full"
-          style={{ height: '46px', alignSelf: 'flex-end', justifyContent: 'center' }}
+          style={{ height: '44px' }}
         >
           <Sparkles size={18} /> {generating ? 'Generating Roadmap...' : 'Regenerate Plan'}
         </button>

@@ -42,15 +42,17 @@ export const ChatPage: React.FC = () => {
   };
 
   return (
-    <div className="animate-fade-in" style={{ display: 'flex', flexDirection: 'column', gap: '20px', height: 'calc(100vh - 140px)' }}>
+    <div className="page-container animate-fade-in" style={{ height: 'calc(100vh - 140px)' }}>
       {/* Header */}
-      <div className="glass-card" style={{ padding: '16px 24px' }}>
-        <h2 style={{ fontSize: '1.4rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <MessageSquare size={22} color="var(--primary)" /> RAG Career Assistant Chatbot
-        </h2>
-        <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>
-          Retrieves vector context from your uploaded resume & job postings to answer questions accurately without hallucinating.
-        </p>
+      <div className="page-header-card" style={{ padding: '18px 24px' }}>
+        <div>
+          <h2 style={{ fontSize: '1.45rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <MessageSquare size={22} color="var(--primary)" /> RAG Career Assistant Chatbot
+          </h2>
+          <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>
+            Retrieves vector context from your uploaded resume & job postings to answer questions accurately without hallucinating.
+          </p>
+        </div>
       </div>
 
       {/* Chat Messages Container */}

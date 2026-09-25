@@ -117,26 +117,28 @@ export const InterviewPage: React.FC = () => {
   if (loading) return <LoadingSpinner message="Generating AI interview questions..." />;
 
   return (
-    <div className="animate-fade-in" style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
+    <div className="page-container animate-fade-in">
       {/* Header */}
-      <div className="glass-card responsive-flex-stack" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '16px' }}>
+      <div className="page-header-card responsive-flex-stack">
         <div>
-          <h2 style={{ fontSize: '1.6rem', marginBottom: '4px' }}>AI Technical Interview Simulator</h2>
+          <h2 style={{ fontSize: '1.65rem', marginBottom: '4px' }}>AI Technical Interview Simulator</h2>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>
             Generate tailored Python, Backend, & AI/ML questions or run an interactive mock interview.
           </p>
         </div>
 
-        <div className="responsive-flex-stack" style={{ display: 'flex', gap: '10px' }}>
+        <div className="responsive-flex-stack" style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
           <button
             onClick={() => setActiveTab('practice')}
             className={activeTab === 'practice' ? 'btn-primary responsive-btn-full' : 'btn-secondary responsive-btn-full'}
+            style={{ height: '42px', padding: '0 18px', fontSize: '0.88rem' }}
           >
             Question Bank
           </button>
           <button
             onClick={handleStartMock}
             className={activeTab === 'mock' ? 'btn-primary responsive-btn-full' : 'btn-secondary responsive-btn-full'}
+            style={{ height: '42px', padding: '0 18px', fontSize: '0.88rem' }}
           >
             <Play size={16} /> Start Interactive Mock
           </button>
@@ -144,17 +146,17 @@ export const InterviewPage: React.FC = () => {
       </div>
 
       {activeTab === 'practice' ? (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
           <div className="glass-card responsive-flex-stack" style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
             <input
               type="text"
               className="form-input"
-              style={{ flex: 1 }}
+              style={{ flex: 1, height: '44px' }}
               placeholder="Target Role (e.g. Senior Python Developer)"
               value={roleTitle}
               onChange={(e) => setRoleTitle(e.target.value)}
             />
-            <button onClick={handleGenerateQuestions} disabled={generating} className="btn-primary responsive-btn-full">
+            <button onClick={handleGenerateQuestions} disabled={generating} className="btn-primary responsive-btn-full" style={{ height: '44px' }}>
               <Sparkles size={18} /> {generating ? 'Generating...' : 'Regenerate Questions'}
             </button>
           </div>
@@ -162,7 +164,7 @@ export const InterviewPage: React.FC = () => {
           {generating ? (
             <LoadingSpinner message="Formulating role-specific technical questions..." />
           ) : (
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', gap: '20px' }}>
+            <div className="grid-2col">
               {questions.map((q, idx) => (
                 <div key={q.id || idx} className="glass-card" style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>

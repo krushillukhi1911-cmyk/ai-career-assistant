@@ -101,26 +101,25 @@ export const ResumePage: React.FC = () => {
   const analysis = selectedResume?.analysis;
 
   return (
-    <div className="animate-fade-in" style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
+    <div className="page-container animate-fade-in">
       {/* Header Bar */}
-      <div className="glass-card" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '20px' }}>
+      <div className="page-header-card responsive-flex-stack">
         <div>
-          <h2 style={{ fontSize: '1.6rem', marginBottom: '4px' }}>AI Resume Analyzer & Parser</h2>
+          <h2 style={{ fontSize: '1.65rem', marginBottom: '4px' }}>AI Resume Analyzer & Parser</h2>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>
             Extract technical skills, parse work history, check ATS formatting scores, and generate AI refined bullet points.
           </p>
         </div>
 
-        <div style={{ display: 'flex', gap: '12px' }}>
+        <div className="responsive-flex-stack" style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
           <button
             onClick={handleLoadDemoResume}
             disabled={uploading}
-            className="btn-secondary"
-            style={{ padding: '10px 18px', display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.9rem' }}
+            className="btn-secondary responsive-btn-full"
           >
             <Sparkles size={16} color="#a5b4fc" /> {uploading ? 'Seeding...' : '⚡ Load Sample Resume'}
           </button>
-          <label className="btn-primary" style={{ cursor: 'pointer', padding: '10px 20px', display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.9rem' }}>
+          <label className="btn-primary responsive-btn-full" style={{ cursor: 'pointer' }}>
             <UploadCloud size={18} />
             {uploading ? 'Parsing...' : 'Upload File'}
             <input type="file" accept=".pdf,.docx,.doc,.txt" onChange={handleFileUpload} style={{ display: 'none' }} />
@@ -142,9 +141,9 @@ export const ResumePage: React.FC = () => {
               key={r.id}
               onClick={() => loadSingleResume(r.id)}
               className={selectedResume?.id === r.id ? 'btn-primary' : 'btn-secondary'}
-              style={{ padding: '8px 16px', fontSize: '0.85rem', whiteSpace: 'nowrap', display: 'flex', alignItems: 'center', gap: '6px' }}
+              style={{ height: '38px', padding: '0 16px', fontSize: '0.85rem' }}
             >
-              <FileText size={16} />
+              <FileText size={15} />
               {r.filename}
             </button>
           ))}
@@ -152,7 +151,7 @@ export const ResumePage: React.FC = () => {
       )}
 
       {selectedResume ? (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 340px), 1fr))', gap: '24px' }}>
+        <div className="grid-2col">
           {/* Left Column: Extracted Structured Data */}
           <div className="glass-card" style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
